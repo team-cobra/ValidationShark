@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Linq.Expressions;
 using ValidationShark.ValidationRules;
 
 namespace ValidationShark
@@ -10,11 +9,13 @@ namespace ValidationShark
         ValidationRuleBuilderForProperty<TValidationTarget, TProperty> : IValidationRuleBuilderForProperty<
             TValidationTarget, TProperty>
     {
-        private readonly Expression<Func<TValidationTarget, TProperty>> _expression;
+        private readonly Func<TValidationTarget, TProperty> _expression;
 
         private readonly List<IValidationRule<TProperty>> _rules = new List<IValidationRule<TProperty>>();
 
-        public ValidationRuleBuilderForProperty(Expression<Func<TValidationTarget, TProperty>> expression)
+        private Func<TValidationTarget, bool> _condition;
+
+        public ValidationRuleBuilderForProperty(Func<TValidationTarget, TProperty> expression)
         {
             _expression = expression;
         }
@@ -26,10 +27,19 @@ namespace ValidationShark
 
         public ValidationResult Validate(TValidationTarget value)
         {
-            var propertyValue = _expression.Compile().Invoke(value);
+            if (!_condition.Invoke(value))
+                return ValidationResult.Succeeded;
+
+            var propertyValue = _expression.Invoke(value);
             var results = _rules.Select(r => r.Validate(propertyValue));
 
             return ValidationResult.Build(results);
+        }
+
+        public IValidationRuleBuilder<TValidationTarget> When(Func<TValidationTarget, bool> condition)
+        {
+            _condition = condition;
+            return this;
         }
     }
 }

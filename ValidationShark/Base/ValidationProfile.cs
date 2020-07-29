@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Linq.Expressions;
 
 namespace ValidationShark
 {
@@ -26,7 +25,7 @@ namespace ValidationShark
         }
 
         protected IValidationRuleBuilderForProperty<TValidationTarget, TProperty> RuleFor<TProperty>(
-            Expression<Func<TValidationTarget, TProperty>> expression)
+            Func<TValidationTarget, TProperty> expression)
         {
             var builder = new ValidationRuleBuilderForProperty<TValidationTarget, TProperty>(expression);
             _ruleBuilders.Add(builder);

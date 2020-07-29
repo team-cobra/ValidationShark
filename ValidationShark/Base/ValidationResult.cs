@@ -36,7 +36,7 @@ namespace ValidationShark
         public static ValidationResult Build(IEnumerable<ValidationResult> nestedResults)
         {
             var failedResults = nestedResults.Where(r => !r.Success).ToList();
-            return new ValidationResult(failedResults.Any(), null)
+            return new ValidationResult(!failedResults.Any(), null)
             {
                 NestedResults = failedResults
             };
