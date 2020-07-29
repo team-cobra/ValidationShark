@@ -11,7 +11,6 @@
 
         public ValidationResult Validate(int value)
         {
-            
             if (value >= _min)
                 return ValidationResult.Succeeded;
 

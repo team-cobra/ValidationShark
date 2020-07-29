@@ -11,10 +11,10 @@ namespace ValidationShark.ValidationRules.String.Length
 
         public ValidationResult Validate(string value)
         {
-            if(string.IsNullOrEmpty(value))
+            if (string.IsNullOrEmpty(value))
                 return ValidationResult.Failed(
-                    $"The given string cannot be null or empty. The string must be at least {_minLength} characters long."); 
-            
+                    $"The given string cannot be null or empty. The string must be at least {_minLength} characters long.");
+
             if (_minLength <= value.Length)
                 return ValidationResult.Succeeded;
 

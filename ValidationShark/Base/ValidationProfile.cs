@@ -5,16 +5,15 @@ using System.Linq;
 namespace ValidationShark
 {
     /// <summary>
-    ///    Base for ValidationProfiles
+    ///     Base for ValidationProfiles
     /// </summary>
     public abstract class ValidationProfile<TValidationTarget> : IValidationProfile
     {
-        
         private readonly List<IValidationRuleBuilder<TValidationTarget>> _ruleBuilders =
             new List<IValidationRuleBuilder<TValidationTarget>>();
 
         /// <summary>
-        ///  Validates the Model by using its Rules
+        ///     Validates the Model by using its Rules
         /// </summary>
         /// <param name="model">Model that should be validated</param>
         /// <returns>Result of the validation-process</returns>
@@ -26,7 +25,7 @@ namespace ValidationShark
         }
 
         /// <summary>
-        /// Adds a new Rule to validate a Property Field
+        ///     Adds a new Rule to validate a Property Field
         /// </summary>
         /// <param name="expression">Expression to determine the Propteryfield that the rule is for</param>
         /// <typeparam name="TProperty">Type of the property</typeparam>

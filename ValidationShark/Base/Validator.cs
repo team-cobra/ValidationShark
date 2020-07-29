@@ -34,7 +34,10 @@ namespace ValidationShark
         ///     Validates the Model
         /// </summary>
         /// <param name="model">Model that should be validated</param>
-        /// <exception cref="MissingValidationProfileException">When there is no <see cref="ValidationProfile{TValidationTarget}"/> registered for the given model</exception>
+        /// <exception cref="MissingValidationProfileException">
+        ///     When there is no
+        ///     <see cref="ValidationProfile{TValidationTarget}" /> registered for the given model
+        /// </exception>
         /// <returns>Result of the validation-process</returns>
         public ValidationResult Validate(object model)
         {

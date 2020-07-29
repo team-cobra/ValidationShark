@@ -22,7 +22,7 @@ namespace ValidationShark
         }
 
         /// <summary>
-        /// Adds a Rule to the current calidation-chain
+        ///     Adds a Rule to the current calidation-chain
         /// </summary>
         /// <param name="rule">Rule that should be added to the validation-chain</param>
         public void AddRule(IValidationRule<TProperty> rule)
@@ -31,7 +31,7 @@ namespace ValidationShark
         }
 
         /// <summary>
-        /// Builds the chain und Validates the Value with it
+        ///     Builds the chain und Validates the Value with it
         /// </summary>
         /// <param name="value">Value that should be validated</param>
         /// <returns>Result of the validation-process</returns>
@@ -47,8 +47,8 @@ namespace ValidationShark
         }
 
         /// <summary>
-        /// Creates a Condition for the current chain
-        /// When the Condition is false, everything on the current chain will pass the validaiton
+        ///     Creates a Condition for the current chain
+        ///     When the Condition is false, everything on the current chain will pass the validaiton
         /// </summary>
         /// <param name="condition">Condition for applying the validaiton</param>
         /// <returns>Returns the Builder for additianl chaining</returns>

@@ -1,4 +1,3 @@
-using ValidationShark.ValidationRules.String;
 using ValidationShark.ValidationRules.String.Length;
 using Xunit;
 
@@ -29,7 +28,7 @@ namespace ValidationShark.Tests
                 Age = 100,
                 Name = "Tesrrrrrrrrrrrrrrrrrrrrtname"
             };
-            
+
             var validator = new Validator(new[] {new TestModelValidationProfile()});
 
             // => Act

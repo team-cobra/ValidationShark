@@ -1,6 +1,6 @@
-﻿﻿using System;
+﻿using System;
 
- namespace ValidationShark
+namespace ValidationShark
 {
     public class MissingValidationProfileException : Exception
     {

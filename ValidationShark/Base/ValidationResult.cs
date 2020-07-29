@@ -9,7 +9,7 @@ namespace ValidationShark
     public class ValidationResult
     {
         /// <summary>
-        /// Creates a new Validation Result
+        ///     Creates a new Validation Result
         /// </summary>
         /// <param name="success">Success of the validation</param>
         /// <param name="message">Message given by the Validation Rule</param>
@@ -20,7 +20,7 @@ namespace ValidationShark
         }
 
         /// <summary>
-        ///  Result of the Validation
+        ///     Result of the Validation
         /// </summary>
         public bool Success { get; } = true;
 
@@ -30,17 +30,17 @@ namespace ValidationShark
         public string Message { get; }
 
         /// <summary>
-        /// Nested Results from the underlying ValidationRules
+        ///     Nested Results from the underlying ValidationRules
         /// </summary>
         public IEnumerable<ValidationResult> NestedResults { get; private set; }
 
         /// <summary>
-        /// Gives a prepared Validation Result for success cases
+        ///     Gives a prepared Validation Result for success cases
         /// </summary>
         public static ValidationResult Succeeded { get; } = new ValidationResult(true, null);
 
         /// <summary>
-        /// Gives a prepared Validation Result for failed cases
+        ///     Gives a prepared Validation Result for failed cases
         /// </summary>
         public static ValidationResult Failed(string message)
         {
@@ -48,8 +48,8 @@ namespace ValidationShark
         }
 
         /// <summary>
-        /// Builds a new ValidationResult from a List of other ValidationResults
-        /// The ValidationResult will be invalid if one of the given ValidationResults is not successfull
+        ///     Builds a new ValidationResult from a List of other ValidationResults
+        ///     The ValidationResult will be invalid if one of the given ValidationResults is not successfull
         /// </summary>
         /// <param name="nestedResults">List of Results from which the ValidationResult should be built</param>
         /// <returns>Validation Result</returns>

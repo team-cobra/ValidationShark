@@ -11,7 +11,6 @@
 
         public ValidationResult Validate(int value)
         {
-            
             if (value <= _max)
                 return ValidationResult.Succeeded;
 

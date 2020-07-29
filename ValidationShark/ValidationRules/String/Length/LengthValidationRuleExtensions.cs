@@ -10,7 +10,7 @@ namespace ValidationShark.ValidationRules.String.Length
 
             return context;
         }
-        
+
         public static IValidationRuleBuilderForProperty<TForModel, string> Required<TForModel>(
             this IValidationRuleBuilderForProperty<TForModel, string> context)
         {
@@ -18,7 +18,7 @@ namespace ValidationShark.ValidationRules.String.Length
 
             return context;
         }
-        
+
         public static IValidationRuleBuilderForProperty<TForModel, string> Min<TForModel>(
             this IValidationRuleBuilderForProperty<TForModel, string> context, int min)
         {
@@ -26,7 +26,7 @@ namespace ValidationShark.ValidationRules.String.Length
 
             return context;
         }
-        
+
         public static IValidationRuleBuilderForProperty<TForModel, string> Max<TForModel>(
             this IValidationRuleBuilderForProperty<TForModel, string> context, int max)
         {
