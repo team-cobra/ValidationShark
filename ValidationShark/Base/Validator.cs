@@ -10,44 +10,39 @@ namespace ValidationShark
         private readonly Dictionary<Type, IValidationProfile> _profiles = new Dictionary<Type, IValidationProfile>();
 
         /// <summary>
-        ///     Initialisiert einen neuen Validator mit Profilen
-        ///     Die Profile werden gespeichert und stehen in der gesamten Lebenszeit des Validators zur Verfügung
+        ///     Initialized the Validator with a list of Validation Profiles that will be registered for later usage
         /// </summary>
-        /// <param name="profiles">Profile, die Initial erstellt werden sollen</param>
-        /// <exception cref="InvalidOperationException">Bei Ungültigen Profilen kommt es zu einer Exception</exception>
+        /// <param name="profiles">List of profiles that should be registered</param>
         public Validator(IEnumerable<IValidationProfile> profiles)
         {
             foreach (var validationProfile in profiles)
             {
-                //Typen des Profils holen
                 var t = validationProfile.GetType();
                 if (t.BaseType == null)
                     throw new InvalidOperationException();
 
-                //Typen des Models holen
                 var modelType = t.BaseType.GenericTypeArguments.FirstOrDefault();
                 if (modelType == null)
                     throw new InvalidOperationException();
 
-                //Profil mit Model als Index speichern
                 _profiles.Add(modelType, validationProfile);
             }
         }
 
+
         /// <summary>
-        ///     Validiert das Model auf Gültigkeit
+        ///     Validates the Model
         /// </summary>
-        /// <param name="model">Model, das auf Gültigkeit geprüft werden soll</param>
-        /// <returns>Ergebnis der Validierung</returns>
+        /// <param name="model">Model that should be validated</param>
+        /// <exception cref="MissingValidationProfileException">When there is no <see cref="ValidationProfile{TValidationTarget}"/> registered for the given model</exception>
+        /// <returns>Result of the validation-process</returns>
         public ValidationResult Validate(object model)
         {
-            //Profil suchen
             if (!_profiles.ContainsKey(model.GetType()))
                 throw new MissingValidationProfileException(model.GetType().FullName);
 
             var profile = _profiles[model.GetType()];
 
-            //Validierung an das Profil weitergeben
             return profile.Validate(model);
         }
     }

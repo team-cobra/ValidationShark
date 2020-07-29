@@ -1,15 +1,16 @@
 ﻿namespace ValidationShark
 {
     /// <summary>
-    ///     Validator mit dem Models geprüft werden können
+    ///     Validator with whom Models can be checked for validity
     /// </summary>
     public interface IValidator
     {
         /// <summary>
-        ///     Validiert das Model auf Gültigkeit
+        ///     Validates the Model
         /// </summary>
-        /// <param name="model">Model, das auf Gültigkeit geprüft werden soll</param>
-        /// <returns>Ergebnis der Validierung</returns>
+        /// <param name="model">Model that should be validated</param>
+        /// <exception cref="MissingValidationProfileException">When there is no <see cref="ValidationProfile{TValidationTarget}"/> registered for the given model</exception>
+        /// <returns>Result of the validation-process</returns>
         ValidationResult Validate(object model);
     }
 }
