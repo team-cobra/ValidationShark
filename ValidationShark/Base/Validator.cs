@@ -38,9 +38,8 @@ namespace ValidationShark
         ///     Validiert das Model auf Gültigkeit
         /// </summary>
         /// <param name="model">Model, das auf Gültigkeit geprüft werden soll</param>
-        /// <typeparam name="TValidationProfile">Profil, mit dem das Model validiert werden soll</typeparam>
         /// <returns>Ergebnis der Validierung</returns>
-        public ValidationResult Validate<TValidationProfile>(object model) where TValidationProfile : IValidationProfile
+        public ValidationResult Validate(object model)
         {
             //Profil suchen
             if (!_profiles.ContainsKey(model.GetType()))
