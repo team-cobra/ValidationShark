@@ -11,6 +11,14 @@ namespace ValidationShark.ValidationRules.String.Length
             return context;
         }
         
+        public static IValidationRuleBuilderForProperty<TForModel, string> Required<TForModel>(
+            this IValidationRuleBuilderForProperty<TForModel, string> context)
+        {
+            context.AddRule(new MinLengthValidationRule(1));
+
+            return context;
+        }
+        
         public static IValidationRuleBuilderForProperty<TForModel, string> Min<TForModel>(
             this IValidationRuleBuilderForProperty<TForModel, string> context, int min)
         {

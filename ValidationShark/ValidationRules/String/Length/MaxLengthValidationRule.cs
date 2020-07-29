@@ -11,7 +11,7 @@ namespace ValidationShark.ValidationRules.String.Length
 
         public ValidationResult Validate(string value)
         {
-            if (_maxLength <= value.Length)
+            if (string.IsNullOrEmpty(value) || value.Length <= _maxLength)
                 return ValidationResult.Succeeded;
 
             return ValidationResult.Failed(
