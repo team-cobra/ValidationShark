@@ -1,4 +1,4 @@
-using ValidationShark.ValidationRule.Length;
+using ValidationShark.ValidationRules.Length;
 using Xunit;
 
 namespace ValidationShark.Tests

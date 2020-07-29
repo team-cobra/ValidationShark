@@ -1,4 +1,4 @@
-namespace ValidationShark.ValidationRule.Length
+namespace ValidationShark.ValidationRules.Length
 {
     public static class LengthValidationRuleExtensions
     {

@@ -1,4 +1,4 @@
-using ValidationShark.ValidationRule;
+using ValidationShark.ValidationRules;
 
 namespace ValidationShark
 {

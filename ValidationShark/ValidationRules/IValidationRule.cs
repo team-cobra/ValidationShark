@@ -1,4 +1,4 @@
-namespace ValidationShark.ValidationRule
+namespace ValidationShark.ValidationRules
 {
     public interface IValidationRule<TProperty>
     {
