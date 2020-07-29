@@ -1,3 +1,4 @@
+using ValidationShark.ValidationRules.Int;
 using ValidationShark.ValidationRules.String;
 using ValidationShark.ValidationRules.String.Length;
 using Xunit;
